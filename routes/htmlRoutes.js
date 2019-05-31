@@ -1,4 +1,4 @@
-var db = require("../models");
+let hookahFlavors = require("../models/hookah_flavors.js");
 
 module.exports = function(app) {
   // Load index page
