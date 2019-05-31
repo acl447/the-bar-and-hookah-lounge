@@ -1,39 +1,38 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+let $exampleText = $("#example-text");
+let $exampleDescription = $("#example-description");
+let $submitBtn = $("#submit");
+let $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
-var API = {
-  saveExample: function(example) {
+let API = {
+  
+  getTables: function() {
     return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
-    });
-  },
-  getExamples: function() {
-    return $.ajax({
-      url: "api/examples",
+      url: "api/tables",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  updateTable: function() {
+
     return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
+      url: "api/tables/:id",
+      type: "PUT"
+    });
+  },
+  getFlavors: function() {
+
+    return $.ajax({
+      url: "api/flavors",
+      type: "GET"
     });
   }
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+let refreshTables = function() {
+  API.getTables().then(function(data) {
+    let $tables = data.map(function(table) {
       var $a = $("<a>")
         .text(example.text)
         .attr("href", "/example/" + example.id);
@@ -82,15 +81,7 @@ var handleFormSubmit = function(event) {
   $exampleDescription.val("");
 };
 
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
   });
 };
 

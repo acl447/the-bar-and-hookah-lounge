@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "password": "GrandCanyon2019",
+    "database": "tablesdb",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "GrandCanyon2019",
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
