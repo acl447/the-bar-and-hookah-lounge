@@ -14,6 +14,7 @@ CREATE TABLE flavors (
     PRIMARY KEY (id)
 );
 
+-- creates reservations table -- 
 CREATE TABLE reservations (
     id INTEGER AUTO_INCREMENT NOT NULL,
     customerName VARCHAR(60),
@@ -23,7 +24,7 @@ CREATE TABLE reservations (
 
     PRIMARY KEY (id)
 );
-
+-- waitlist table creation -- 
 CREATE TABLE waitlist (
     id INTEGER AUTO_INCREMENT NOT NULL,
     customerName VARCHAR(60),
