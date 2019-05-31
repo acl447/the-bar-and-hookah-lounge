@@ -1,8 +1,5 @@
 // Get references to page elements
-let $exampleText = $("#example-text");
-let $exampleDescription = $("#example-description");
 let $submitBtn = $("#submit");
-let $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 let API = {
