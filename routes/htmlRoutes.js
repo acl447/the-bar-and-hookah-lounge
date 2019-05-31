@@ -8,19 +8,24 @@ module.exports = function(app) {
       });
     });
 
-  // Load example page and pass in an example by id
-  // app.get("/table/:id", function(req, res) {
-  
-  //   db.then(function(dbTable) {
-  //     res.render("table", {
-  //       table: dbTable
-  //     });
-  //   });
-  // });
+  // Load table page and pass in a table by id
+  app.get("/table/:id", function(req, res) {
+
+      res.render("table", {
+        id: req.params.id
+      });
+    });
 
   app.get("/reserve", function(req, res) {
     
       res.render("reserve", {
+        
+      });
+    });
+
+  app.get("/manager", function(req, res) {
+    
+      res.render("manager", {
         
       });
     });
