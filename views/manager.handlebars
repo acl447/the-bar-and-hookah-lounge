@@ -1,0 +1,24 @@
+<div id="manager">
+    <div class="container vertical-center">
+
+        <div class="row" style="width: 100%;">
+            <div class="col-12">
+                <!-- Pass in data from server.js -->
+                <ul>
+                    {{#each reservations}}
+                    <li>
+                        <p><span class="label">ID:</span> {{this.id}}</p>
+
+                        <a href="/{{this.id}}">Update this reservation</a>
+                    </li>
+                    {{/each}}
+                </ul>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
