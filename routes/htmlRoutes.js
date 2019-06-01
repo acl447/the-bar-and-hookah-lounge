@@ -30,6 +30,15 @@ module.exports = function(app) {
       });
     });
 
+    app.get("/single-reservation", function(req, res) {
+    
+      res.render("single-reservation", {
+        
+      });
+    });
+
+  
+
 
  
 
