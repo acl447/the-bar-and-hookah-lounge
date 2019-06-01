@@ -1,3 +1,40 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+h1, 
+h2,
+label {
+
+  font-family: 'Oleo Script Swash Caps', cursive;
+}
+
+h1 {
+
+  font-size: 55px;
+  
+}
+
+h2 {
+
+  color: firebrick;
+}
+
+body {
+
+  background-image: url(../images/fire-3127145_1920.jpg);
+  
+}
+
+.vertical-center {
+   min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+  /* max-width: 100%; */
+  display: flex;
+  align-items: center;
+}
+
+#submit {
+
+  width: 100%;
+}

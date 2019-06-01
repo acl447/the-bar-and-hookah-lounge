@@ -3,22 +3,44 @@ let hookahFlavors = require("../models/hookah_flavors.js");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+   
       res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
       });
     });
-  });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
+  // Load table page and pass in a table by id
+  app.get("/table/:id", function(req, res) {
+
+      res.render("table", {
+        id: req.params.id
       });
     });
-  });
+
+  app.get("/reserve", function(req, res) {
+    
+      res.render("reserve", {
+        
+      });
+    });
+
+  app.get("/manager", function(req, res) {
+    
+      res.render("manager", {
+        
+      });
+    });
+
+    app.get("/single-reservation", function(req, res) {
+    
+      res.render("single-reservation", {
+        
+      });
+    });
+
+  
+
+
+ 
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {

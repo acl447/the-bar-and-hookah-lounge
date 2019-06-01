@@ -1,21 +1,81 @@
 <div id="home">
-  <div class="container">
+  <div class="container vertical-center">
+
     <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
+      <div class="col-12 offset-5">
+        <h1 class="text-center mt-5 mb-5">
+          <div class="text-center"><span style="color:#ff0000;">T</span><span style="color:#ff0400;">h</span><span
+              style="color:#ff0800;">e</span><span style="color:#ff0c00;"> </span><span
+              style="color:#ff1000;">B</span><span style="color:#ff1400;">a</span><span
+              style="color:#ff1900;">r</span><span style="color:#ff1d00;"> </span><span
+              style="color:#ff2100;">&amp;</span><span style="color:#ff2500;"> </span><span
+              style="color:#ff2900;">H</span><span style="color:#ff2d00;">o</span><span
+              style="color:#ff3100;">o</span><span style="color:#ff3500;">k</span><span
+              style="color:#ff3900;">a</span><span style="color:#ff3d00;">h</span><span style="color:#ff4200;">
+            </span><span style="color:#ff4600;">L</span><span style="color:#ff4a00;">o</span><span
+              style="color:#ff4e00;">u</span><span style="color:#ff5200;">n</span><span
+              style="color:#ff5600;">g</span><span style="color:#ff5a00;">e</span></div>
+        </h1>
+  
+
+        <form class="">
           <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+            <h2 class="text-center">Select Your Hookah Flavor:</h2>
+            <select class="mb-4" style="width: 100%;">
+              <option value="mint-mist">Mint Mist</option>
+              <option value="quad-apple">Quadruple Apple</option>
+              <option value="rich-tobacco">Rich Tobacco</option>
+              <option value="white-gummy-bear">White Gummy Bear</option>
+              <option value="sex-on-the-beach">Sex on the Beach</option>
+              <option value="pungent-peach">Pungent Peach</option>
+              <option value="watermelon-weekend">Watermelon Weekend</option>
+              <option value="grapish">Grapish</option>
+              <option value="white-grape">White Grape</option>
+              <option value="tropical-twist">Tropical Twist</option>
+              <option value="strawberry-kiwi">Strawberry Kiwi</option>
+              <option value="strawberry-lemonade">Strawberry Lemonade</option>
+              <option value="lemon-cake">Lemon Cake</option>
+              <option value="limeapple">Limeapple</option>
+              <option value="peachy-pineapple">Peachy Pineapple</option>
+              <option value="spiced-chai">Spiced Chai</option>
+              <option value="mango-mint">Mango Mint</option>
+              <option value="watermelon-winter">Watermelon Winter</option>
+              <option value="double-apple-mint">Double Apple Mint</option>
+              <option value="crimson-bull">Crimson Bull</option>
+              <option value="peary-good">Peary Good</option>
+              <option value="blue-raspberry-blend">Blue Raspberry Blend</option>
+              <option value="blood-orange">Blood Orange</option>
+              <option value="red-roses">Red Roses</option>
+              <option value="vanilla-ice">Vanilla Ice</option>
+              <option value="maple-magic">Maple Magic</option>
+              <option value="key-lime">Key Lime</option>
+              <option value="pineapple-pastry">Pineapple Pastry</option>
+              <option value="amf">AMF</option>
+              <option value="banana-pudding">Banana Pudding</option>
+              <option value="jell-o-shot">Jell-O Shot</option>
+              <option value="fruit-stripe">Fruit Stripe</option>
+              <option value="mojito">Mojito</option>
+              <option value="double-bubble">Double Bubble</option>
+              <option value="cucumber-lemon">Cucumber Lemon</option>
+              <option value="dew-da-dew">Dew Da Dew</option>
+              <option value="mystical-unicorn">Mystical Unicorn</option>
+              <option value="frozen-honeydew">Frozen Honeydew</option>
+              <option value="blueberry-muffins">Blueberry Muffins</option>
+              <option value="white-chocolate-peanut-butter">White Chocolate Peanut Butter</option>
+              <option value="tigers-blood">Tiger's Blood</option>
+              <option value="tropical-pomegranate">Tropical Pomegranate</option>
+              <option value="italian-soda">Italian Soda</option>
+              <option value="americano">Americano</option>
+              <option value="space-daze">Space Daze</option>
+              <option value="pineapple-express">Pineapple Express</option>
+              <option value="candied-sprite">Candied Sprite</option>
+              <option value="code-red">Code Red</option>
+              <option value="fruit-salad">Fruit Salad</option>
+              <option value="sweet-dream">Sweet Dream</option>
+            </select>
           </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
-        <h3>Examples:</h3>
+        {{!-- <h3></h3>
         <ul id="example-list" class="list-group">
           {{#each examples}}
           <li data-id="{{this.id}}" class="list-group-item">
@@ -23,11 +83,21 @@
             <button class="btn btn-danger float-right delete">ｘ</button>
           </li>
           {{/each}}
-        </ul>
+        </ul> --}}
+
+       
+
+    
+
+        <a class="btn btn-dark mb-4" href="/reserve" style="width: 100%;" role="button">Make A Reservation</a>
+        
+         <a class="btn btn-dark" href="/table/:id" style="width: 100%;" role="button">See My Reservation</a>
       </div>
     </div>
+
   </div>
 </div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/index.js"></script>
+
