@@ -1,5 +1,5 @@
 // Get references to page elements
-let $exampleText = $("#example-text");
+let flavorList = $("#flavor_list");
 let $exampleDescription = $("#example-description");
 let $submitBtn = $("#submit");
 let $exampleList = $("#example-list");
@@ -82,8 +82,6 @@ var handleFormSubmit = function(event) {
 };
 
 
-  });
-};
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
