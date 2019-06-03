@@ -19,7 +19,6 @@ CREATE TABLE reservations (
     id INTEGER AUTO_INCREMENT NOT NULL,
     customerName VARCHAR(60),
     customerEmail VARCHAR(30),
-    customerID VARCHAR(30),
     phoneNumber VARCHAR(30),
 
     PRIMARY KEY (id)
@@ -29,7 +28,6 @@ CREATE TABLE waitlist (
     id INTEGER AUTO_INCREMENT NOT NULL,
     customerName VARCHAR(60),
     customerEmail VARCHAR(30),
-    customerID VARCHAR(30),
     phoneNumber VARCHAR(30),
 
     PRIMARY KEY (id)

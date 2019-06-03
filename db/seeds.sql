@@ -1,4 +1,4 @@
-
+-- flavor seeds --
 INSERT INTO flavors (name, category, description, quantity)
 VALUES ("Mint Mist", "Mint", "A cool, clearing breeze of mint.", 50);
 
@@ -149,4 +149,13 @@ VALUES ("Fruit Salad", "Fruit", "All the fruits!", 53);
 INSERT INTO flavors (name, category, description, quantity)
 VALUES ("Sweet Dream", "Other", "A relaxing bedtime delight.", 28);
 
+-- reservation seed --
 
+INSERT INTO reservations (customerName, customerEmail, phoneNumber)
+VALUES ("Smokey Robinson", "smokey1@clouds.net", "(111) 111-1111");
+
+
+-- waitlist seed --
+
+INSERT INTO waitlist (customerName, customerEmail, phoneNumber)
+VALUES ("Willie Nelson", "nelsonsback@willieshere.com", "(555) 555-5555");

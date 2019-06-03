@@ -6,20 +6,11 @@ let API = {
   
   getTables: function() {
     return $.ajax({
-      url: "api/reservations",
+      url: "api/tables",
       type: "GET"
     });
   },
 
-  reserveTable: function() {
-
-
-    return $.ajax({
-
-      url: "api/tables/" 
-    })
-
-  }
   updateTable: function() {
 
     return $.ajax({
@@ -102,5 +93,5 @@ var handleFormSubmit = function(event) {
 };
 
 // Add event listeners to the submit and delete buttons
-$reserveTable.on("click", handleFormSubmit);
+$reserveTable.on("click", );
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
