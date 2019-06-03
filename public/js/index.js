@@ -1,8 +1,5 @@
 // Get references to page elements
-let $exampleText = $("#example-text");
-let $exampleDescription = $("#example-description");
-let $submitBtn = $("#submit");
-let $exampleList = $("#example-list");
+let $reserveTable = $("#reserveTable");
 
 // The API object contains methods for each kind of request we'll make
 let API = {
@@ -13,12 +10,22 @@ let API = {
       type: "GET"
     });
   },
+
   updateTable: function() {
 
     return $.ajax({
-      url: "api/tables/:id",
-      type: "PUT"
-    });
+      url: "api/tables/" + id,
+      type: "PUT",
+      data: updatedTable
+    }).then(
+      function() {
+
+        console.log("updated table");
+
+        //Reload the manager page to get updated reservations list
+        location.assign("/manager");
+      }
+    );
   },
   getFlavors: function() {
 
@@ -86,5 +93,5 @@ var handleFormSubmit = function(event) {
 };
 
 // Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
+$reserveTable.on("click", );
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
