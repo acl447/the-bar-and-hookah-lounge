@@ -74,7 +74,7 @@ let refreshTables = function () {
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function (event) {
   event.preventDefault();
-
+//   let reservationsList = ""
 //   if (!(example.text && example.description)) {
 //     alert("You must enter an example text and description!");
 //     return;
