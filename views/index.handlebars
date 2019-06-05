@@ -85,6 +85,28 @@
           {{/each}}
         </ul> --}}
 
+        <ul>
+                    {{#each reservations}}
+
+                    <p><span class="label">ID:</span> {{id}}</p>
+
+                    {{!-- {{#if reserved}}
+                    {{> reservations/reservation-block reserved=true}}
+                    {{/if}} --}}
+                    {{/each}}
+                </ul>
+
+                <ul>
+                    {{#each reservations}}
+
+                    <p><span class="label">ID:</span> {{id}}</p>
+
+                    {{!-- {{#unless reserved}}
+                    {{> reservations/reservation-block reserved=false}}
+                    {{/unless}} --}}
+                    {{/each}}
+                </ul>
+
        
 
     
@@ -99,5 +121,5 @@
 </div>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/js/index.js"></script>
+    {{!-- <script src="/js/index.js"></script> --}}
 
