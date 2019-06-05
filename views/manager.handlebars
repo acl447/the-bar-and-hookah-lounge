@@ -26,6 +26,18 @@
                     {{/each}}
                 </ul>
 
+                <ul>
+                    {{#each reservations}}
+
+                    <p><span class="label">ID:</span> {{this.id}}</p>
+
+                    {{!-- {{#unless reserved}}
+                    {{> reservations/reservation-block reserved=false}}
+                    {{/unless}} --}}
+                    {{/each}}
+                </ul>
+
+
             </div>
 
         </div>
