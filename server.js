@@ -4,6 +4,10 @@ let exphbs = require("express-handlebars");
 
 let app = express();
 
+var apiRoutes = require("./routes/apiRoutes.js");
+
+app.use(apiRoutes);
+
 let PORT = process.env.PORT || 3000;
 
 // Middleware
@@ -16,7 +20,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/apiRoutes")(app);
+require("./routes/apiRoutes");
 require("./routes/htmlRoutes")(app);
 
 app.listen(PORT, function() {
