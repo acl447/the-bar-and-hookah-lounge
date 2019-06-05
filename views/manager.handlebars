@@ -9,9 +9,6 @@
                 <!-- Pass in data from server.js -->
                 <ul>
                     {{#each reservationsList}}
-
-                    <p><span class="label">ID:</span> {{this.id}}</p>
-
                     {{#if reserved}}
                     {{> reservations/reservation-block reserved=true}}
                     {{/if}}
@@ -20,9 +17,6 @@
 
                 <ul>
                     {{#each reservationsList}}
-
-                    <p><span class="label">ID:</span> {{this.id}}</p>
-
                     {{#unless reserved}}
                     {{> reservations/reservation-block reserved=false}}
                     {{/unless}}
