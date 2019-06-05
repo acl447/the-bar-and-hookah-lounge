@@ -6,11 +6,23 @@
                 <!-- Pass in data from server.js -->
                 <ul>
                     {{#each reservations}}
-                    <li>
-                        <p><span class="label">ID:</span> {{this.id}}</p>
 
-                        <a href="/{{this.id}}">Update this reservation</a>
-                    </li>
+                    <p><span class="label">ID:</span> {{this.id}}</p>
+
+                    {{#if reserved}}
+                    {{> reservations/reservation-block reserved=true}}
+                    {{/if}}
+                    {{/each}}
+                </ul>
+
+                <ul>
+                    {{#each reservations}}
+
+                    <p><span class="label">ID:</span> {{this.id}}</p>
+
+                    {{#unless reserved}}
+                    {{> reservations/reservation-block reserved=false}}
+                    {{/unless}}
                     {{/each}}
                 </ul>
 
