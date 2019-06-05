@@ -9,9 +9,20 @@
 
                     <p><span class="label">ID:</span> {{this.id}}</p>
 
-                    {{!-- {{#if reserved}}
+                    {{#if reserved}}
                     {{> reservations/reservation-block reserved=true}}
-                    {{/if}} --}}
+                    {{/if}}
+                    {{/each}}
+                </ul>
+
+                <ul>
+                    {{#each reservations}}
+
+                    <p><span class="label">ID:</span> {{this.id}}</p>
+
+                    {{#unless reserved}}
+                    {{> reservations/reservation-block reserved=false}}
+                    {{/unless}}
                     {{/each}}
                 </ul>
 

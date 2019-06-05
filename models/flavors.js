@@ -1,26 +1,26 @@
 let orm = require("../config/orm.js");
 
-let waiting = {
+let flavors = {
     all: function (cb) {
-        orm.all("waitlist", function (res) {
+        orm.all("flavors", function (res) {
             cb(res);
         });
     },
     create: function (colName, value, cb) {
-        orm.create("waitlist", colName, value, function (res) {
+        orm.create("flavors", colName, value, function (res) {
             cb(res);
         });
     },
     update: function (setCol, setVal, colParam, valParam, cb) {
-        orm.update("waitlist", setCol, setVal, colParam, valParam, function (res) {
+        orm.update("flavors", setCol, setVal, colParam, valParam, function (res) {
             cb(res);
         });
     },
     delete: function (colName, value, cb) {
-        orm.delete("waitlist", colName, value, function (res) {
+        orm.delete("flavors", colName, value, function (res) {
             cb(res);
         });
     }
 };
 
-module.exports = waiting; 
+module.exports = reservation;
