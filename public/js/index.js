@@ -87,7 +87,7 @@ var handleFormSubmit = function (event) {
   API.saveExample(example).then(function () {
     refreshExamples();
   });
-
+};
 
 //   });
 // };
