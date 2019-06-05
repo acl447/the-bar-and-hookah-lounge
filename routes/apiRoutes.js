@@ -10,8 +10,9 @@ router.get("/api/examples", function (req, res) {
 });
 
 router.get("/api/flavors", function (req, res) {
-  hookahFlavors.all({}).then(function (data) {
-    res.json(data);
+  console.log("api/flavors was called");
+  hookahFlavors.all(function (data) {
+    res.json({ "flavorList": data });
   });
 });
 
@@ -28,4 +29,6 @@ router.delete("/api/examples/:id", function (req, res) {
     res.json(dbExample);
   });
 });
+
+module.exports = router;
 

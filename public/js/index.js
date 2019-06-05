@@ -3,22 +3,22 @@ let $reserveTable = $("#reserveTable");
 
 // The API object contains methods for each kind of request we'll make
 let API = {
-  
-  getTables: function() {
+
+  getTables: function () {
     return $.ajax({
       url: "api/tables",
       type: "GET"
     });
   },
 
-  updateTable: function() {
+  updateTable: function () {
 
     return $.ajax({
       url: "api/tables/" + id,
       type: "PUT",
       data: updatedTable
     }).then(
-      function() {
+      function () {
 
         console.log("updated table");
 
@@ -27,7 +27,8 @@ let API = {
       }
     );
   },
-  getFlavors: function() {
+  getFlavors: function () {
+    console.log("getFlavors called");
 
     return $.ajax({
       url: "api/flavors",
@@ -37,9 +38,9 @@ let API = {
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-let refreshTables = function() {
-  API.getTables().then(function(data) {
-    let $tables = data.map(function(table) {
+let refreshTables = function () {
+  API.getTables().then(function (data) {
+    let $tables = data.map(function (table) {
       var $a = $("<a>")
         .text(example.text)
         .attr("href", "/example/" + example.id);
@@ -67,7 +68,7 @@ let refreshTables = function() {
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleFormSubmit = function (event) {
   event.preventDefault();
 
   var example = {
@@ -80,7 +81,7 @@ var handleFormSubmit = function(event) {
     return;
   }
 
-  API.saveExample(example).then(function() {
+  API.saveExample(example).then(function () {
     refreshExamples();
   });
 
@@ -91,34 +92,52 @@ var handleFormSubmit = function(event) {
 
 
 // Add event listeners to the submit and delete buttons
-$reserveTable.on("click", );
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+// $reserveTable.on("click");
+// $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
-let refreshFlavors = function() {
-  API.getFlavors().then(function(data) {
-    let flavorsList = data.map(function(table) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+let refreshFlavors = function () {
+  console.log("refresh flavors called");
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
+  API.getFlavors().then(function (data) {
+    console.log(data);
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
-
-      $li.append($button);
-
-      return $li;
+    let flavorList = "";
+    data.flavorList.forEach(function (element) {
+      flavorList += "<option value='" +
+        element.name + "'>" + element.name + "</option>"
     });
+    console.log(flavorList);
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+    $("#flavor_list").html(flavorList);
+    // let flavorsList = data.map(function(table) {
+    //   var $a = $("<a>")
+    //     .text(example.text)
+    //     .attr("href", "/example/" + example.id);
+
+    //   var $li = $("<li>")
+    //     .attr({
+    //       class: "list-group-item",
+    //       "data-id": example.id
+    //     })
+    //     .append($a);
+
+    //   var $button = $("<button>")
+    //     .addClass("btn btn-danger float-right delete")
+    //     .text("ｘ");
+
+    //   $li.append($button);
+
+    //   return $li;
+    // });
+
+    // $exampleList.empty();
+    // $exampleList.append($examples);
   });
 };
+
+$(document).ready(function () {
+  console.log("document ready called");
+
+  refreshFlavors();
+});
 
