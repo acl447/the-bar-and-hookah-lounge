@@ -26,7 +26,7 @@ CREATE TABLE reservations (
 );
 -- waitlist table creation -- 
 CREATE TABLE waitlist (
-    id INTEGER NOT NULL,
+    id INTEGER AUTO_INCREMENT NOT NULL,
     customerName VARCHAR(60) DEFAULT NULL,
     customerEmail VARCHAR(30) DEFAULT NULL, 
     phoneNumber VARCHAR(30) DEFAULT NULL,

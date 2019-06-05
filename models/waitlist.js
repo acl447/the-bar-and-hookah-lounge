@@ -6,8 +6,8 @@ let waiting = {
             cb(res);
         });
     },
-    create: function (colName, value, cb) {
-        orm.create("waitlist", colName, value, function (res) {
+    create: function (cols, vals, cb) {
+        orm.create("waitlist", cols, vals, function (res) {
             cb(res);
         });
     },
