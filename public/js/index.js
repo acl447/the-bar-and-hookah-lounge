@@ -1,5 +1,9 @@
+// Make sure we wait to attach our handlers until the DOM is fully loaded.
+// $(function() {
+
+
 // Get references to page elements
-let $reserveTable = $("#reserveTable");
+// let $reserveTable = $("#reserveTable");
 
 // The API object contains methods for each kind of request we'll make
 let API = {
@@ -71,24 +75,22 @@ let refreshTables = function () {
 var handleFormSubmit = function (event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
-  };
+//   if (!(example.text && example.description)) {
+//     alert("You must enter an example text and description!");
+//     return;
+//   }
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
+//   API.saveExample(example).then(function() {
+//     refreshExamples();
+//   });
 
   API.saveExample(example).then(function () {
     refreshExamples();
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
-};
 
+//   });
+// };
 
 
 // Add event listeners to the submit and delete buttons
