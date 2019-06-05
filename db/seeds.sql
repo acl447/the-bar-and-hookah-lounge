@@ -1,3 +1,5 @@
+-- flavor seeds --
+USE hookah_flavorsDB;
 
 
 INSERT INTO flavors (name, category, description, quantity)
