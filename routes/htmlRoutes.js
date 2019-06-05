@@ -1,4 +1,5 @@
 let hookahFlavors = require("../models/hookah_flavors.js");
+let reservations = require("../models/tables.js");
 
 module.exports = function(app) {
   // Load index page
@@ -24,10 +25,18 @@ module.exports = function(app) {
     });
 
   app.get("/manager", function(req, res) {
+
+    reservations.all(function(data) {
+
+      let hbsObject = {
+
+        reservationsList: data
+      };
+      console.log(hbsObject);
+      res.render("manager", hbsObject);
+    });
     
-      res.render("manager", {
-        
-      });
+     
     });
 
     app.get("/single-reservation", function(req, res) {
