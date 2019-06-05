@@ -6,8 +6,8 @@ let reservation = {
             cb(res);
         });
     },
-    create: function (colName, value, cb) {
-        orm.create("reservations", colName, value, function (res) {
+    create: function (cols, vals, cb) {
+        orm.create("reservations", cols, vals, function (res) {
             cb(res);
         });
     },
