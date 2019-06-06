@@ -1,0 +1,39 @@
+<div id="update-flavors">
+    <div class="container vertical-center">
+
+        <div class="row" style="width: 100%;">
+            <div class="col-12">
+
+                <div class="card mx-auto mt-4">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">Flavors</h2>
+
+                        <form class="add-flavor float-right">
+
+                            <div class="form-group">
+                                <label for="name" style="color: orangered; font-size: 28px;">Flavor Name:</label>
+                                <input type="text" class="form-control" id="name" aria-describedby="number-in-party"
+                                    placeholder="Enter Flavor Name">
+                            </div>
+                             <button id="addFlavor" type="submit" class="btn btn-dark mt-1">Add Flavor</button>
+
+                        </form>
+
+                        <ul>
+                            {{#each hookahFlavorsList}}
+                            {{> flavors/flavor-block}}
+                            {{/each}}
+
+                        </ul>
+
+
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
