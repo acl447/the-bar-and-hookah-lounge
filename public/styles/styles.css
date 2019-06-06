@@ -20,6 +20,7 @@ h2 {
   color: firebrick;
 }
 
+
 body {
 
   background-image: url(../images/fire-3127145_1920.jpg);
@@ -37,4 +38,27 @@ body {
 #submit {
 
   width: 100%;
+}
+
+#drinkPic {
+  height: 200px;
+  width: 100%;
+  margin-bottom: 10px;
+  color: firebrick;
+};
+
+#cocktails li {
+  color: firebrick;
+}
+
+#descColor {
+  color: firebrick;
+}
+
+#cNameColor {
+  color: firebrick;
+}
+
+#listTitle {
+  margin-left: 38px;
 }
