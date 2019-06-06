@@ -1,9 +1,18 @@
 <li>
 
 <p><span class="label">ID:</span> {{this.id}}</p>
-<button class="change-reservation" data-id="{{id}}" data-newreservation="{{reserved}}">
 
-    {{#if reserved}}Reserved{{else}}Available{{/if}}
-</button>
+    {{#if reserved}}
+    <p><span class="label">Customer Name: </span> {{this.customerName}}</p>
+    <p><span class="label">Customer Email: </span> {{this.customerEmail}}</p>
+    <p><span class="label">Customer Phone Number: </span> {{this.phoneNumber}}</p>
+    <p><span class="label">Hookah Flavor: </span> {{this.flavor}}</p>
+    <button class="change-reservation" data-id="{{id}}" data-newreservation="{{reserved}}">Clear Table</button>
+    {{else}}AVAILABLE
+    <br>
+    <button class="change-reservation mt-2" data-id="{{id}}" data-newreservation="{{reserved}}">Reserve from Waitlist</button>
+    
+    {{/if}}
+
 
 </li>
