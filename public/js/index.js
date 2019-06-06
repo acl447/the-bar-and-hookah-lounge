@@ -143,7 +143,7 @@ $(document).ready(function () {
 
     API.getTables(function (result) {
       let tableList = result;
-      console.log("New Reservation: " + newReservation);
+      console.log("New Reservation: " + JSON.stringify(newReservation));
       console.log("New Reservation - Name: " + newReservation.name);
       console.log(tableList);
       // console.log(tableList.responseJSON);
