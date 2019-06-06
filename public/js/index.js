@@ -50,6 +50,7 @@ let API = {
       type: "GET"
     });
   },
+
   randomCocktail: function () {
     $.ajax({
       url: "https://www.thecocktaildb.com/api/json/v1/1/random.php",
@@ -191,8 +192,8 @@ $(document).ready(function () {
   console.log("document ready called");
 
   $("#cocktails").load("/table/:id #cocktails li");
-    $("#cocktails").empty();
-    API.randomCocktail();
+  $("#cocktails").empty();
+  API.randomCocktail();
 
   /*$(".search").click(function () {
     $("ol").empty();
@@ -240,5 +241,37 @@ $(document).ready(function () {
     });
   });
 
+  $(".add-flavor").on("submit", function (event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+
+
+
+    let newFlavor = {
+      name: $("#flavor-name").val().trim(),
+      category: $("#category").val().trim(),
+      description: $("#description").val().trim(),
+      quantity: $("#quantity").val().trim()
+    };
+
+      console.log("New Flavor: " + JSON.stringify(newFlavor));
+      console.log("New Flavor - Name: " + newFlavor.name);
+      
+    
+
+
+      // Send the POST request.
+      // $.ajax("/api/cats", {
+      //   type: "POST",
+      //   data: newCat
+      // }).then(
+      //   function () {
+      //     console.log("created new cat");
+      //     // Reload the page to get the updated list
+      //     location.reload();
+      //   }
+      // );
+  });
 
 });
