@@ -10,7 +10,7 @@
                 <ul>
                     {{#each reservationsList}}
                     {{#if reserved}}
-                    {{> reservations/reservation-block reserved=true}}
+                    {{> reservations/reservation-block reserve=true}}
                     {{/if}}
                     {{/each}}
                 </ul>
@@ -18,7 +18,7 @@
                 <ul>
                     {{#each reservationsList}}
                     {{#unless reserved}}
-                    {{> reservations/reservation-block reserved=false}}
+                    {{> reservations/reservation-block reserve=false}}
                     {{/unless}}
                     {{/each}}
                 </ul>

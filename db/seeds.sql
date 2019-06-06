@@ -154,8 +154,8 @@ VALUES ("Sweet Dream", "Other", "A relaxing bedtime delight.", 28);
 
 -- reservation seed --
 
-INSERT INTO reservations (id, customerName, customerEmail, phoneNumber, flavor)
-VALUES (1, "Smokey Robinson", "smokey1@clouds.net", "(111) 111-1111", "Watermelon Winter");
+INSERT INTO reservations (id, customerName, customerEmail, phoneNumber, flavor, reserved)
+VALUES (1, "Smokey Robinson", "smokey1@clouds.net", "(111) 111-1111", "Watermelon Winter", true);
 
 
 -- waitlist seed --

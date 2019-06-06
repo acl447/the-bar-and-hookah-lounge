@@ -7,10 +7,11 @@
     <p><span class="label">Customer Email: </span> {{this.customerEmail}}</p>
     <p><span class="label">Customer Phone Number: </span> {{this.phoneNumber}}</p>
     <p><span class="label">Hookah Flavor: </span> {{this.flavor}}</p>
-    <button class="change-reservation" data-id="{{id}}" data-newreservation="{{reserved}}">Clear Table</button>
+    <p><span class="label">Reserved: </span> {{this.reserved}}</p>
+    <button class="change-reservation" data-id="{{id}}" data-newreservation="{{reserve}}">Clear Table</button>
     {{else}}AVAILABLE
     <br>
-    <button class="change-reservation mt-2" data-id="{{id}}" data-newreservation="{{reserved}}">Reserve from Waitlist</button>
+    <button class="change-reservation mt-2" data-id="{{id}}" data-newreservation="{{reserve}}">Reserve from Waitlist</button>
     
     {{/if}}
 

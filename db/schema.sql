@@ -21,6 +21,7 @@ CREATE TABLE reservations (
     customerEmail VARCHAR(30) DEFAULT NULL, 
     phoneNumber VARCHAR(30) DEFAULT NULL,
     flavor VARCHAR(30) DEFAULT NULL,
+    reserved BOOLEAN DEFAULT true,
 
     PRIMARY KEY (id)
 );
