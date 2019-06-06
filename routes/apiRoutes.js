@@ -8,7 +8,9 @@ let router = express.Router();
 router.get("/api/reservations", function (req, res) {
   console.log("api/reservations was called");
   reservations.all(function (data) {
-    res.json({ "reservationsList": data });
+    console.log(data);    
+    res.json(data);
+    // res.json({ "reservationsList": data });
   });
 });
 

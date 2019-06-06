@@ -4,11 +4,39 @@
         <div class="row" style="width: 100%;">
             <div class="col-12">
 
-                <form class="">
-                    <div class="form-group">
-                        <h2 class="text-center">Select Your Hookah Flavor:</h2>
+                <form class="reserve-table">
+                    <div class="form-group mb-5 text-center">
+                        <label for="name" style="color: orangered; font-size: 30px;">Select Your Hookah Flavor:</label>
                         <select class="mb-4" id="flavor_list" style="width: 100%;">
-                            {{!-- <option value="mint-mist">Mint Mist</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mb-5 text-center">
+                        <label for="name" style="color: orangered; font-size: 30px;">Your Name:</label>
+                        <input type="text" class="form-control" id="name" aria-describedby="number-in-party"
+                            placeholder="John Doe">
+                    </div>
+
+                    <div class="form-group mb-5 text-center">
+                        <label for="email" style="color: orangered; font-size: 30px;">Your Email Address:</label>
+                        <input type="email" class="form-control" id="email" aria-describedby="email address"
+                            placeholder="john.doe@mail.com">
+                    </div>
+
+                    <div class="form-group mb-5 text-center">
+                        <label for="phone" style="color: orangered; font-size: 30px;">Your Phone Number:</label>
+                        <input type="tel" class="form-control" id="phone" aria-describedby="phone number"
+                            placeholder="480-555-5555">
+                    </div>                    
+
+                    <button id="reserveTable" type="submit" class="btn btn-dark mt-3">Reserve A Table</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- <option value="mint-mist">Mint Mist</option>
               <option value="quad-apple">Quadruple Apple</option>
               <option value="rich-tobacco">Rich Tobacco</option>
               <option value="white-gummy-bear">White Gummy Bear</option>
@@ -58,28 +86,3 @@
               <option value="code-red">Code Red</option>
               <option value="fruit-salad">Fruit Salad</option>
               <option value="sweet-dream">Sweet Dream</option> --}}
-                        </select>
-                    </div>
-                </form>
-
-
-
-                <form>
-                    <div class="form-group mb-5 text-center">
-                        <label for="number-in-party" style="color: firebrick; font-size: 30px;">Number of People in Your
-                            Party:</label>
-                        <input type="number" class="form-control" id="number-in-party"
-                            aria-describedby="number-in-party" placeholder="Enter Number of People in Your Party">
-                    </div>
-                    <button id="reserveTable" type="submit" class="btn btn-dark mt-3">Reserve A Table</button>
-                </form>
-            </div>
-
-        </div>
-
-
-
-
-    </div>
-
-</div>

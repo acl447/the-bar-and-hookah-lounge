@@ -8,10 +8,14 @@
 // The API object contains methods for each kind of request we'll make
 let API = {
 
-  getTables: function () {
-    return $.ajax({
-      url: "api/tables",
+  getTables: function (cb) {
+    $.ajax({
+      url: "api/reservations",
       type: "GET"
+    }).then(function (data, textStatus, jqXHR) {
+      console.log(data);
+      cb(data);
+      // console.log(jqXHR.responseText);
     });
   },
 
@@ -74,15 +78,15 @@ let refreshTables = function () {
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function (event) {
   event.preventDefault();
-//   let reservationsList = ""
-//   if (!(example.text && example.description)) {
-//     alert("You must enter an example text and description!");
-//     return;
-//   }
+  //   let reservationsList = ""
+  //   if (!(example.text && example.description)) {
+  //     alert("You must enter an example text and description!");
+  //     return;
+  //   }
 
-//   API.saveExample(example).then(function() {
-//     refreshExamples();
-//   });
+  //   API.saveExample(example).then(function() {
+  //     refreshExamples();
+  //   });
 
   API.saveExample(example).then(function () {
     refreshExamples();
@@ -108,32 +112,10 @@ let refreshFlavors = function () {
       flavorList += "<option value='" +
         element.name + "'>" + element.name + "</option>"
     });
-    console.log(flavorList);
+    // console.log(flavorList);
 
     $("#flavor_list").html(flavorList);
-    // let flavorsList = data.map(function(table) {
-    //   var $a = $("<a>")
-    //     .text(example.text)
-    //     .attr("href", "/example/" + example.id);
 
-    //   var $li = $("<li>")
-    //     .attr({
-    //       class: "list-group-item",
-    //       "data-id": example.id
-    //     })
-    //     .append($a);
-
-    //   var $button = $("<button>")
-    //     .addClass("btn btn-danger float-right delete")
-    //     .text("ｘ");
-
-    //   $li.append($button);
-
-    //   return $li;
-    // });
-
-    // $exampleList.empty();
-    // $exampleList.append($examples);
   });
 };
 
@@ -141,5 +123,43 @@ $(document).ready(function () {
   console.log("document ready called");
 
   refreshFlavors();
-});
 
+  $(".reserve-table").on("submit", function (event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    let flavorSel = $("#flavor_list");
+    // console.log(flavorSel[0].selectedOptions[0].text);
+    let opt = flavorSel[0].selectedOptions[0];
+    // console.log(opt);
+
+
+    let newReservation = {
+      flavor: opt.text,
+      name: $("#name").val().trim(),
+      email: $("#email").val().trim(),
+      phone: $("#phone").val().trim(),
+    };
+
+    API.getTables(function (result) {
+      let tableList = result;
+      console.log("New Reservation: " + newReservation);
+      console.log("New Reservation - Name: " + newReservation.name);
+      console.log(tableList);
+      // console.log(tableList.responseJSON);
+
+
+      // Send the POST request.
+      // $.ajax("/api/cats", {
+      //   type: "POST",
+      //   data: newCat
+      // }).then(
+      //   function () {
+      //     console.log("created new cat");
+      //     // Reload the page to get the updated list
+      //     location.reload();
+      //   }
+      // );
+    });
+  });
+});
