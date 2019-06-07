@@ -255,23 +255,36 @@ $(document).ready(function () {
       quantity: $("#quantity").val().trim()
     };
 
-      console.log("New Flavor: " + JSON.stringify(newFlavor));
-      console.log("New Flavor - Name: " + newFlavor.name);
-      
-    
+    console.log("New Flavor: " + JSON.stringify(newFlavor));
+    console.log("New Flavor - Name: " + newFlavor.name);
 
+    // Send the POST request.
+    $.ajax("/api/flavors", {
+      type: "POST",
+      data: newFlavor
+    }).then(
+      function () {
+        console.log("created new flavor");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
 
-      // Send the POST request.
-      // $.ajax("/api/cats", {
-      //   type: "POST",
-      //   data: newCat
-      // }).then(
-      //   function () {
-      //     console.log("created new cat");
-      //     // Reload the page to get the updated list
-      //     location.reload();
-      //   }
-      // );
+  });
+
+  $(".del-flavor").on("click", function(event) {
+    let id = $(this).data("id");
+
+    // Send the DELETE request.
+    $.ajax("/api/flavors/" + id, {
+      type: "DELETE"
+    }).then(
+      function() {
+        console.log("deleted id ", id);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
   });
 
 });
