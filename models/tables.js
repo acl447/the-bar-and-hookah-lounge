@@ -11,8 +11,8 @@ let reservation = {
             cb(res);
         });
     },
-    update: function (setCol, setVal, colParam, valParam, cb) {
-        orm.update("reservations", setCol, setVal, colParam, valParam, function (res) {
+    update: function (objColVals, condition, cb) {
+        orm.update("reservations", objColVals, condition, function (res) {
             cb(res);
         });
     },

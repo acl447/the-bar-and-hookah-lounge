@@ -11,8 +11,8 @@ let waiting = {
             cb(res);
         });
     },
-    update: function (setCols, setVals, colParam, valParam, cb) {
-        orm.update("waitlist", setCols, setVals, colParam, valParam, function (res) {
+    update: function (objColVals, condition, cb) {
+        orm.update("waitlist", objColVals, condition, function (res) {
             cb(res);
         });
     },
