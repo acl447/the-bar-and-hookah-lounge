@@ -52,11 +52,14 @@ router.get("/api/flavors", function (req, res) {
   });
 });
 
-// Create a new flavor
-// router.post("/api/flavors", function (req, res) {
-//  hookahFlavors.create(["name", "category",  )
-//    res.json();
-//   });
+// Add flavor to flavor list
+router.post("/api/flavors", function (req, res) {
+  console.log("router.post api/flavors was called");
+  hookahFlavors.create(Object.keys(req.body), Object.values(req.body), function (data) {
+
+   res.json({ "flavorList": data });
+  });
+});
 
 // Create a new example
 //router.post("/api/reservations", function (req, res) {

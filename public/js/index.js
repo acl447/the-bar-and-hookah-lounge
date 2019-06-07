@@ -58,6 +58,23 @@ let API = {
       url: "api/flavors",
       type: "GET"
     });
+  },
+
+  createFlavor: function (newFlavor) {
+
+    console.log("createFlavor called");
+
+    return $.ajax({
+      url: "api/flavors",
+      type: "POST",
+      data: newFlavor
+    }).then(
+      function () {
+        console.log("created new flavor");
+        // Reload the page to get the updated list
+        // location.reload();
+      }
+    );
   }
 };
 
@@ -214,9 +231,6 @@ $(document).ready(function () {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
-
-
-
     let newFlavor = {
       name: $("#flavor-name").val().trim(),
       category: $("#category").val().trim(),
@@ -227,17 +241,7 @@ $(document).ready(function () {
     console.log("New Flavor: " + JSON.stringify(newFlavor));
     console.log("New Flavor - Name: " + newFlavor.name);
 
-    // Send the POST request.
-    $.ajax("/api/flavors", {
-      type: "POST",
-      data: newFlavor
-    }).then(
-      function () {
-        console.log("created new flavor");
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
+    API.createFlavor(newFlavor);
 
   });
 
