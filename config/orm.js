@@ -10,6 +10,24 @@ function printQms(num) {
     return arr.toString();
 };
 
+function objToSql(ob) {
+    let arr = [];
+
+    for (let key in ob) {
+        let value = ob[key];
+
+        if (Object.hasOwnProperty.call(ob, key)) {
+            if (typeof value === "string" && value.indexOf(" ") >= 0) {
+                value = "'" + value + "'";
+            }
+
+            arr.push(key + "=" + value);
+        }
+    }
+
+    return arr.toString();
+}
+
 
 let orm = {
     all: function (tableName, cb) {
@@ -38,11 +56,16 @@ let orm = {
             cb(result);
         });
     },
-    update: function (tableName, setCol, setVal, colParam, valParam, cb) {
-        connection.query("UPDATE " + tableName
-            + " SET " + setCol
-            + " = ? WHERE " + colParam
-            + " = ?", [setVal, valParam],
+    update: function (tableName, objColVals, condition, cb) {
+        let queryString = "UPDATE " + tableName;
+
+        queryString += " SET ";
+        queryString += objToSql(objColVals);
+        queryString += " WHERE ";
+        queryString += condition;
+
+        console.log(queryString);
+        connection.query(queryString, 
             function (err, result) {
                 if (err) throw err;
                 cb(result);
