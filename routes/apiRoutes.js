@@ -14,9 +14,9 @@ router.get("/api/reservations", function (req, res) {
   });
 });
 
-router.put("/api/reservations", function (req, res) {
+router.put("/api/reservations/:id", function (req, res) {
   console.log("put api/reservations was called");
-  reservations.update(Object.keys(req.body), Object.values(req.body), "ID", req.body.ID, function (data) {
+  reservations.update(Object.keys(req.body), Object.values(req.body), "ID", id, function (data) {
     res.json({ "waitList": data });
   });
   // res.json({ "reservationsList": data });

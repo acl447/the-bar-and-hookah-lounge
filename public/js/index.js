@@ -26,7 +26,7 @@ let API = {
       // console.log(jqXHR.responseText);
     });
   },
-  updateTable: function (newRes) {
+  updateTable: function (newRes, id) {
 
     return $.ajax({
       url: "api/reservations/" + id,
@@ -199,7 +199,7 @@ let refreshFlavors = function () {
 };
 
 let search = function (myArray, nameKey, value) {
-  
+
   for (var i = 0; i < myArray.length; i++) {
     console.log(myArray[i]);
     // console.log(nameKey);        
@@ -210,7 +210,7 @@ let search = function (myArray, nameKey, value) {
   }
 };
 
-let addToWaitList = function (newRes){
+let addToWaitList = function (newRes) {
 
 
 };
@@ -259,10 +259,12 @@ $(document).ready(function () {
       console.log(resTableCount);
 
       if (resTableCount === tableList.length) {
-        API.postWaitList(newReservation)
+        API.postWaitList(newReservation);
+        alert("You have been put on the waitlist")
       } else {
         let openTableID = search(tableList, "reserved", 0);
-        console.log(openTableID);
+        console.log(openTableID.id);
+        API.updateTable(newReservation, openTableID.id);
       }
 
       // Send the POST request.
