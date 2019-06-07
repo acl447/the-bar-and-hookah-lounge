@@ -241,23 +241,6 @@ $(document).ready(function () {
       }
     );
 
-<<<<<<< HEAD
-  });
-
-  $(".del-flavor").on("click", function(event) {
-    let id = $(this).data("id");
-
-    // Send the DELETE request.
-    $.ajax("/api/flavors/" + id, {
-      type: "DELETE"
-    }).then(
-      function() {
-        console.log("deleted id ", id);
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-=======
 
 
     // Send the POST request.
@@ -271,7 +254,6 @@ $(document).ready(function () {
     //     location.reload();
     //   }
     // );
->>>>>>> a870fa1a7572e6a729cb335477ecaa085458af90
   });
 
 });
