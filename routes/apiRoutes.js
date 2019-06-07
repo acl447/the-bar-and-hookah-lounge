@@ -8,18 +8,24 @@ let router = express.Router();
 router.get("/api/reservations", function (req, res) {
   console.log("get api/reservations was called");
   reservations.all(function (data) {
-    console.log(data);
+    // console.log(data);
     res.json(data);
     // res.json({ "reservationsList": data });
   });
 });
 
-router.put("/api/reservations", function (req, res) {
+router.put("/api/reservations/:id", function (req, res) {
   console.log("put api/reservations was called");
-  reservations.update(Object.keys(req.body), Object.values(req.body), "ID", req.body.ID, function (data) {
-    res.json({ "waitList": data });
+  console.log(req.body);
+  var condition = "id = " + req.params.id;
+  console.log("condition", condition);
+
+  reservations.update(req.body, condition, function (data) {
+    res.json({ "reservation": data });
+    console.log("Reservation was made:");
+    console.log(data);
+
   });
-  // res.json({ "reservationsList": data });
 });
 
 //Get all waitlist listings

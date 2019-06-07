@@ -18,8 +18,14 @@ let API = {
       // console.log(jqXHR.responseText);
     });
   },
-  updateTable: function (newRes) {
+  updateTable: function (newRes, id) {
+    console.log("New Reservation");
+    console.log(newRes);
 
+    // $.put("api/reservations/" + id, newRes, function (res) {
+    //   if (newRes) { console.log("updated table"); }
+
+    // })
     return $.ajax({
       url: "api/reservations/" + id,
       type: "PUT",
@@ -44,6 +50,7 @@ let API = {
       data: newRes
     });
   },
+
   getFlavors: function () {
     console.log("getFlavors called");
 
@@ -129,7 +136,7 @@ let refreshFlavors = function () {
 };
 
 let search = function (myArray, nameKey, value) {
-  
+
   for (var i = 0; i < myArray.length; i++) {
     console.log(myArray[i]);
     // console.log(nameKey);        
@@ -140,18 +147,13 @@ let search = function (myArray, nameKey, value) {
   }
 };
 
-let addToWaitList = function (newRes){
+let addToWaitList = function (newRes) {
 
 
 };
 
 $(document).ready(function () {
   console.log("document ready called");
-
-  /*$(".search").click(function () {
-    $("ol").empty();
-    getCocktailName();
-  })*/
 
   refreshFlavors();
 
@@ -167,9 +169,9 @@ $(document).ready(function () {
 
     let newReservation = {
       flavor: opt.text,
-      name: $("#name").val().trim(),
-      email: $("#email").val().trim(),
-      phone: $("#phone").val().trim(),
+      customerName: $("#name").val().trim(),
+      customerEmail: $("#email").val().toString().trim(),
+      phoneNumber: $("#phone").val().toString().trim(),
     };
 
     API.getTables(function (result) {
@@ -185,10 +187,13 @@ $(document).ready(function () {
       console.log(resTableCount);
 
       if (resTableCount === tableList.length) {
-        API.postWaitList(newReservation)
+        API.postWaitlist(newReservation);
+        alert("You have been put on the waitlist")
       } else {
         let openTableID = search(tableList, "reserved", 0);
-        console.log(openTableID);
+        console.log(openTableID.id);
+        newReservation.reserved = 1;
+        API.updateTable(newReservation, openTableID.id);
       }
 
       // Send the POST request.
@@ -236,14 +241,14 @@ $(document).ready(function () {
 
   });
 
-  $(".del-flavor").on("click", function(event) {
+  $(".del-flavor").on("click", function (event) {
     let id = $(this).data("id");
 
     // Send the DELETE request.
     $.ajax("/api/flavors/" + id, {
       type: "DELETE"
     }).then(
-      function() {
+      function () {
         console.log("deleted id ", id);
         // Reload the page to get the updated list
         location.reload();
