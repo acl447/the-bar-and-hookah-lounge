@@ -26,21 +26,31 @@ let API = {
       // console.log(jqXHR.responseText);
     });
   },
-  updateTable: function () {
+  updateTable: function (newRes) {
 
     return $.ajax({
-      url: "api/tables/" + id,
+      url: "api/reservations/" + id,
       type: "PUT",
-      data: updatedTable
+      data: newRes
     }).then(
       function () {
 
         console.log("updated table");
 
         //Reload the manager page to get updated reservations list
-        location.assign("/manager");
+        // location.assign("/manager");
       }
     );
+  },
+
+  postWaitlist: function (newRes) {
+    console.log("postWaitlist called");
+
+    return $.ajax({
+      url: "api/waitlist",
+      type: "POST",
+      data: newRes
+    });
   },
   getFlavors: function () {
     console.log("getFlavors called");
@@ -188,6 +198,23 @@ let refreshFlavors = function () {
   });
 };
 
+let search = function (myArray, nameKey, value) {
+  
+  for (var i = 0; i < myArray.length; i++) {
+    console.log(myArray[i]);
+    // console.log(nameKey);        
+    // console.log(myArray[i].nameKey);    
+    if (myArray[i][nameKey] === value) {
+      return myArray[i];
+    }
+  }
+};
+
+let addToWaitList = function (newRes){
+
+
+};
+
 $(document).ready(function () {
   console.log("document ready called");
 
@@ -224,8 +251,19 @@ $(document).ready(function () {
       console.log("New Reservation: " + JSON.stringify(newReservation));
       console.log("New Reservation - Name: " + newReservation.name);
       console.log(tableList);
-      // console.log(tableList.responseJSON);
 
+      let resTableCount = 0;
+      tableList.forEach(function (element) {
+        resTableCount += element.reserved;
+      });
+      console.log(resTableCount);
+
+      if (resTableCount === tableList.length) {
+        API.postWaitList(newReservation)
+      } else {
+        let openTableID = search(tableList, "reserved", 0);
+        console.log(openTableID);
+      }
 
       // Send the POST request.
       // $.ajax("/api/cats", {
@@ -255,23 +293,23 @@ $(document).ready(function () {
       quantity: $("#quantity").val().trim()
     };
 
-      console.log("New Flavor: " + JSON.stringify(newFlavor));
-      console.log("New Flavor - Name: " + newFlavor.name);
-      
-    
+    console.log("New Flavor: " + JSON.stringify(newFlavor));
+    console.log("New Flavor - Name: " + newFlavor.name);
 
 
-      // Send the POST request.
-      // $.ajax("/api/cats", {
-      //   type: "POST",
-      //   data: newCat
-      // }).then(
-      //   function () {
-      //     console.log("created new cat");
-      //     // Reload the page to get the updated list
-      //     location.reload();
-      //   }
-      // );
+
+
+    // Send the POST request.
+    // $.ajax("/api/cats", {
+    //   type: "POST",
+    //   data: newCat
+    // }).then(
+    //   function () {
+    //     console.log("created new cat");
+    //     // Reload the page to get the updated list
+    //     location.reload();
+    //   }
+    // );
   });
 
 });
