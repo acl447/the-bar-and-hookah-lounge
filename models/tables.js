@@ -12,6 +12,7 @@ let reservation = {
         });
     },
     update: function (objColVals, condition, cb) {
+        // objColVals.reserved = true;
         orm.update("reservations", objColVals, condition, function (res) {
             cb(res);
         });
