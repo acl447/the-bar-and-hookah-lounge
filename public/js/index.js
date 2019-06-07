@@ -148,8 +148,6 @@ let addToWaitList = function (newRes){
 $(document).ready(function () {
   console.log("document ready called");
 
-<<<<<<< HEAD
-=======
   $("#cocktails").load("/table/:id #cocktails li");
   $("#cocktails").empty();
   API.randomCocktail();
@@ -159,7 +157,6 @@ $(document).ready(function () {
     getCocktailName();
   })*/
 
->>>>>>> test
   refreshFlavors();
 
   $(".reserve-table").on("submit", function (event) {
@@ -241,7 +238,6 @@ $(document).ready(function () {
       }
     );
 
-<<<<<<< HEAD
   });
 
   $(".del-flavor").on("click", function(event) {
@@ -257,21 +253,6 @@ $(document).ready(function () {
         location.reload();
       }
     );
-=======
-
-
-    // Send the POST request.
-    // $.ajax("/api/cats", {
-    //   type: "POST",
-    //   data: newCat
-    // }).then(
-    //   function () {
-    //     console.log("created new cat");
-    //     // Reload the page to get the updated list
-    //     location.reload();
-    //   }
-    // );
->>>>>>> a870fa1a7572e6a729cb335477ecaa085458af90
   });
 
 });
