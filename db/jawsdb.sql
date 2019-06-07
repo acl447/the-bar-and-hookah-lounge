@@ -1,3 +1,5 @@
+USE uku6pv1pfe9or53e;
+
 CREATE TABLE flavors (
     id INTEGER AUTO_INCREMENT NOT NULL,
     name VARCHAR(60),
@@ -5,7 +7,7 @@ CREATE TABLE flavors (
     description TEXT,
     quantity INTEGER,
 	
-    createdAt TIMESTAMP not null CURRENT_TIMESTAMP,
+    createdAt TIMESTAMP not null default CURRENT_TIMESTAMP,
     PRIMARY KEY (id)
 );
 
