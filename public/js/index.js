@@ -75,6 +75,23 @@ let API = {
         // location.reload();
       }
     );
+  },
+
+  deleteFlavor: function (id) {
+
+    console.log("deleteFlavor called");
+
+    // Send the DELETE request.
+    return $.ajax("/api/flavors/" + id, {
+      type: "DELETE"
+    }).then(
+      function () {
+        console.log("deleted id ", id);
+
+      }
+    );
+
+
   }
 };
 
@@ -250,16 +267,11 @@ $(document).ready(function () {
   $(".del-flavor").on("click", function (event) {
     let id = $(this).data("id");
 
-    // Send the DELETE request.
-    $.ajax("/api/flavors/" + id, {
-      type: "DELETE"
-    }).then(
-      function () {
-        console.log("deleted id ", id);
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
+    console.log("id of flavor to delete:", id);
+
+    API.deleteFlavor(id);
+    // Reload the page to get the updated list
+    location.reload();
   });
 
 });

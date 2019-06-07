@@ -61,6 +61,19 @@ router.post("/api/flavors", function (req, res) {
   });
 });
 
+//Delete flavor from flavor list
+router.delete("/api/flavors/:id", function (req, res) {
+
+  console.log("router.delete api/flavors/:id was called");
+
+  let flavorID = req.params.id;
+
+  hookahFlavors.delete("id", flavorID, function (data) {
+
+    res.json({ "flavorList": data});
+  }); 
+});
+
 // Create a new example
 //router.post("/api/reservations", function (req, res) {
 // if (reservations)
