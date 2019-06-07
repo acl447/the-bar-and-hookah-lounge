@@ -1,21 +1,27 @@
 <div id="home">
-  <div class="container">
+  <div class="container vertical-center">
+
     <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
+      <div class="col-12 offset-5">
+        <h1 class="text-center mt-5 mb-5">
+          <div class="text-center"><span style="color:#ff0000;">T</span><span style="color:#ff0400;">h</span><span
+              style="color:#ff0800;">e</span><span style="color:#ff0c00;"> </span><span
+              style="color:#ff1000;">B</span><span style="color:#ff1400;">a</span><span
+              style="color:#ff1900;">r</span><span style="color:#ff1d00;"> </span><span
+              style="color:#ff2100;">&amp;</span><span style="color:#ff2500;"> </span><span
+              style="color:#ff2900;">H</span><span style="color:#ff2d00;">o</span><span
+              style="color:#ff3100;">o</span><span style="color:#ff3500;">k</span><span
+              style="color:#ff3900;">a</span><span style="color:#ff3d00;">h</span><span style="color:#ff4200;">
+            </span><span style="color:#ff4600;">L</span><span style="color:#ff4a00;">o</span><span
+              style="color:#ff4e00;">u</span><span style="color:#ff5200;">n</span><span
+              style="color:#ff5600;">g</span><span style="color:#ff5a00;">e</span></div>
+        </h1>
+
+
+
+
+
+        {{!-- <h3></h3>
         <ul id="example-list" class="list-group">
           {{#each examples}}
           <li data-id="{{this.id}}" class="list-group-item">
@@ -23,11 +29,18 @@
             <button class="btn btn-danger float-right delete">ｘ</button>
           </li>
           {{/each}}
-        </ul>
+        </ul> --}}
+
+
+
+
+
+
+        <a class="btn btn-dark mb-4" href="/reserve" style="width: 100%;" role="button">Make A Reservation</a>
+
+        <a class="btn btn-dark" href="/table/:id" style="width: 100%;" role="button">See My Reservation</a>
       </div>
     </div>
+
   </div>
 </div>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
