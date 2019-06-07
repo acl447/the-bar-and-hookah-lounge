@@ -148,10 +148,6 @@ let addToWaitList = function (newRes){
 $(document).ready(function () {
   console.log("document ready called");
 
-  $("#cocktails").load("/table/:id #cocktails li");
-  $("#cocktails").empty();
-  API.randomCocktail();
-
   /*$(".search").click(function () {
     $("ol").empty();
     getCocktailName();
