@@ -6,18 +6,34 @@ let router = express.Router();
 
 // Get all reservations
 router.get("/api/reservations", function (req, res) {
-  console.log("api/reservations was called");
+  console.log("get api/reservations was called");
   reservations.all(function (data) {
-    console.log(data);    
+    console.log(data);
     res.json(data);
     // res.json({ "reservationsList": data });
   });
 });
 
+router.put("/api/reservations", function (req, res) {
+  console.log("put api/reservations was called");
+  reservations.update(Object.keys(req.body), Object.values(req.body), "ID", req.body.ID, function (data) {
+    res.json({ "waitList": data });
+  });
+  // res.json({ "reservationsList": data });
+});
+
 //Get all waitlist listings
 router.get("/api/waitlist", function (req, res) {
-  console.log("api/waitlist was called");
+  console.log("get api/waitlist was called");
   waitList.all(function (data) {
+    res.json({ "waitList": data });
+  });
+});
+
+//Add reservation to waitlist
+router.post("/api/waitlist", function (req, res) {
+  console.log("post api/waitlist was called");
+  waitList.create(Object.keys(req.body), Object.values(req.body), function (data) {
     res.json({ "waitList": data });
   });
 });
@@ -32,16 +48,16 @@ router.get("/api/flavors", function (req, res) {
 
 // Create a new example
 //router.post("/api/reservations", function (req, res) {
- // if (reservations)
-  //  res.json(dbExample);
-  //});
+// if (reservations)
+//  res.json(dbExample);
+//});
 //});
 
 // Delete an example by id
 //router.delete("/api/examples/:id", function (req, res) {
 //  db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
- //   res.json(dbExample);
- // });
+//   res.json(dbExample);
+// });
 //});
 
 module.exports = router;
