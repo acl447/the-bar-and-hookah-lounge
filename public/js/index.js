@@ -242,6 +242,8 @@ $(document).ready(function () {
     console.log("New Flavor - Name: " + newFlavor.name);
 
     API.createFlavor(newFlavor);
+    // Reload the page to get the updated list
+    location.reload();
 
   });
 
