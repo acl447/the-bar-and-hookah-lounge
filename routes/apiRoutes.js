@@ -28,10 +28,21 @@ router.put("/api/reservations/:id", function (req, res) {
   });
 });
 
-//Get all waitlist listings
 router.get("/api/waitlist", function (req, res) {
   console.log("get api/waitlist was called");
   waitList.all(function (data) {
+    // console.log(data);
+    res.json(data);
+    // res.json({ "reservationsList": data });
+  });
+});
+
+//Get all waitlist listings
+router.delete("/api/waitlist", function (req, res) {
+  console.log("delete api/waitlist was called");
+  console.log("Delete Waitlist req: ", req.body);
+  
+  waitList.delete("id", req.body.clearWaitID, function (data) {
     res.json({ "waitList": data });
   });
 });

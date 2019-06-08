@@ -72,6 +72,7 @@ let orm = {
             });
     },
     delete: function (tableName, colName, value, cb) {
+        console.log("Delete Value: ", value)
         connection.query("DELETE FROM " + tableName
             + " WHERE " + colName
             + " = ?", [value],
