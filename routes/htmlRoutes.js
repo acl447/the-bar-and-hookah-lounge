@@ -32,7 +32,7 @@ module.exports = function (app) {
 
         reservationsList: data
       };
-      console.log(hbsObject);
+      // console.log(hbsObject);
       res.render("manager", hbsObject);
     });
 

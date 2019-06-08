@@ -15,17 +15,23 @@ let API = {
     }).then(function (data, textStatus, jqXHR) {
       console.log(data);
       cb(data);
-      // console.log(jqXHR.responseText);
     });
   },
+
+  getWaitlist: function (cb) {
+    $.ajax({
+      url: "api/waitlist",
+      type: "GET"
+    }).then(function (data, textStatus, jqXHR) {
+      console.log(data);
+      cb(data);
+    });
+  },
+
   updateTable: function (newRes, id) {
     console.log("New Reservation");
     console.log(newRes);
 
-    // $.put("api/reservations/" + id, newRes, function (res) {
-    //   if (newRes) { console.log("updated table"); }
-
-    // })
     return $.ajax({
       url: "api/reservations/" + id,
       type: "PUT",
@@ -48,6 +54,16 @@ let API = {
       url: "api/waitlist",
       type: "POST",
       data: newRes
+    });
+  },
+
+  deleteWaitlist: function (clearWaitID) {
+    console.log("postWaitlist called");
+
+    return $.ajax({
+      url: "api/waitlist",
+      type: "DELETE",
+      data: {clearWaitID: clearWaitID}
     });
   },
 
@@ -229,18 +245,50 @@ $(document).ready(function () {
         newReservation.reserved = 1;
         API.updateTable(newReservation, openTableID.id);
       }
+    });
+  });
 
-      // Send the POST request.
-      // $.ajax("/api/cats", {
-      //   type: "POST",
-      //   data: newCat
-      // }).then(
-      //   function () {
-      //     console.log("created new cat");
-      //     // Reload the page to get the updated list
-      //     location.reload();
-      //   }
-      // );
+  $(".clear-reservation").on("click", function (event) {
+
+    event.preventDefault();
+    
+    let tableID = event.target.dataset.id;
+
+    let clearReservation = {
+      flavor: null,
+      customerName: null,
+      customerEmail: null,
+      phoneNumber: null,
+      reserved: 0
+    };
+
+        API.updateTable(clearReservation, tableID);
+        location.reload();
+  });
+
+  $(".waitlist-reservation").on("click", function (event) {
+
+    event.preventDefault();
+    
+    let tableID = event.target.dataset.id;
+
+    API.getWaitlist(function (result) {
+      let waitList = result;
+      if (jQuery.isEmptyObject(waitList)){
+        alert("The Waitlist is Empty")
+      } else {
+        let waitID = waitList[0].id;
+        let newReservation = {
+          flavor: waitList[0].flavor,
+          customerName: waitList[0].customerName,
+          customerEmail: waitList[0].customerEmail,
+          phoneNumber: waitList[0].phoneNumber,
+          reserved: 1
+        };
+        API.updateTable(newReservation, tableID);
+        API.deleteWaitlist(waitID);
+        location.reload();
+      }
     });
   });
 
