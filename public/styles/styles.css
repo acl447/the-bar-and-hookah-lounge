@@ -23,7 +23,10 @@ h2 {
 
 body {
 
-  background-image: url(../images/fire-3127145_1920.jpg);
+  background-image: url(../images/smoke_rising-2.png);
+  background-repeat: no-repeat;
+  background-color: black;
+  background-attachment: fixed;
   
 }
 
