@@ -1,18 +1,26 @@
 <div id="manager">
-    <div class="container vertical-center">
+    <div class="container mx-auto">
 
-        <div class="row" style="width: 100%;">
+        <div class="row mt-4">
             <div class="col-12">
-                <div class="card mx-auto mt-4">
-        <div class="card-body">
-          <h2 class="card-title text-center">Reservations</h2>
 
-                 <a class="btn btn-dark float-right mr-5" href="/update-flavors" role="button">Update Flavors</a>
+                <h2 class="card-title text-center">Reservations</h2>
+
+                <a class="btn btn-light float-right mr-5" href="/update-flavors" role="button">Update Flavors</a>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 offset-2">
                 <!-- Pass in data from server.js -->
                 <ul>
                     {{#each reservationsList}}
                     {{#if reserved}}
-                    {{> reservations/reservation-block reserve=true}}
+                    <div class="card mx-auto mt-4">
+                        <div class="card-body">
+                            {{> reservations/reservation-block reserve=true}}
+                        </div>
+                    </div>
                     {{/if}}
                     {{/each}}
                 </ul>
@@ -20,12 +28,19 @@
                 <ul>
                     {{#each reservationsList}}
                     {{#unless reserved}}
-                    {{> reservations/reservation-block reserve=false}}
+                    <div class="card mx-auto mt-4">
+                        <div class="card-body">
+                            {{> reservations/reservation-block reserve=false}}
+                        </div>
+                    </div>
+
                     {{/unless}}
                     {{/each}}
                 </ul>
 
 
+
+                <a href="/">← Back To Home</a>
 
             </div>
 

@@ -18,8 +18,8 @@ CREATE TABLE flavors (
 CREATE TABLE reservations (
     id INTEGER NOT NULL,
     customerName VARCHAR(60) DEFAULT NULL,
-    customerEmail VARCHAR(30) DEFAULT NULL, 
-    phoneNumber VARCHAR(30) DEFAULT NULL,
+    customerEmail VARCHAR(60) DEFAULT NULL, 
+    phoneNumber VARCHAR(15) DEFAULT NULL,
     flavor VARCHAR(30) DEFAULT NULL,
     reserved BOOLEAN DEFAULT false,
 
