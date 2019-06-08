@@ -20,14 +20,12 @@ h2 {
   color: firebrick;
 }
 
-
 body {
-
   background-image: url(../images/smoke_rising-2.png);
   background-repeat: no-repeat;
   background-color: black;
   background-attachment: fixed;
-  
+  background-position: center;
 }
 
 .vertical-center {
@@ -38,8 +36,11 @@ body {
   align-items: center;
 }
 
-#submit {
+.title {
+  margin-left: 25px;
+}
 
+#submit {
   width: 100%;
 }
 
@@ -65,11 +66,6 @@ body {
 #listTitle {
   margin-left: 38px;
 }
-
-
-
-
-
 
 .fade-in-fwd {
 	-webkit-animation: fade-in-fwd 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.4s both;
